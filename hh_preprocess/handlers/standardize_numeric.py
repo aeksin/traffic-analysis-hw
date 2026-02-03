@@ -20,6 +20,9 @@ class StandardizeConfig:
         "education_year",
         "total_experience_months",
         "resume_days_since_update",
+        "age_sq",
+        "experience_sq",
+        "description_len_log",
     )
     eps: float = 1e-8
 

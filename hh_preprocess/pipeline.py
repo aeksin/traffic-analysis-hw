@@ -1,7 +1,10 @@
 from .handlers.base import Handler
+from .handlers.bert_embedding import BertEmbeddingHandler
 from .handlers.clean_cols import CleanColumnsHandler
 from .handlers.clear_control_chars import CleanControlCharsHandler
 from .handlers.deduplicate import DeduplicateHandler
+from .handlers.enrich_features import EnrichFeaturesHandler
+from .handlers.experience_skills import SkillFeaturesHandler
 from .handlers.filter_salary_outliers import FilterSalaryOutliersHandler
 from .handlers.finalize_arrays import FinalizeArraysHandler
 from .handlers.group_city import CityGroupingHandler
@@ -43,6 +46,9 @@ def build_pipeline() -> Handler:
         ParseResumeUpdateHandler(),
         ParseAutoHandler(),
         JobCategoryHandler(),
+        SkillFeaturesHandler(),
+        BertEmbeddingHandler(vector_size=25),
+        EnrichFeaturesHandler(),
         StandardizeNumericHandler(),
         OneHotEncodeHandler(),
         FinalizeArraysHandler(),
